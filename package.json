@@ -64,6 +64,7 @@
     "locate-path": "^6.0.0",
     "lodash": "^4.17.21",
     "lodash.merge": "^4.6.2",
+    "method-override": "^3.0.0",
     "minimatch": "^3.1.2",
     "morgan": "^1.10.0",
     "ms": "^2.1.2",
