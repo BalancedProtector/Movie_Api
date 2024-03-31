@@ -22,13 +22,13 @@ app.use(morgan("combined" , {stream: accessLogStream}));
     app.use(express.static("public"));
 //get requests
 app.get ("/", (req, res) => {
-    res.sendFile(__dirname + "/index.html");
+    res.sendFile("/index.html", {root: __dirname});
 });
 app.get("/movies", (req, res) => {
-    res.json(__dirname + "/public/movies.json");
+    res.sendFile("/public/movies.json", {root: __dirname});
 })
 app.get("/documentation", (req, res) => {
-    res.sendFile(__dirname + "/public/documentatin.html", {root: __dirname});
+    res.sendFile("/public/documentation.html", {root: __dirname});
 });
 //Server Port
 app.listen(8080, () => {
