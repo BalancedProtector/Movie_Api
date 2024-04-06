@@ -1,18 +1,82 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="styles.css">
     <title>Documentation</title>
   </head>
   <body>
     <h1>Welcome to my Movie Api Documentation Page</h1>
-
-    <p> This Api is being designed to return a list of movies with individial data sets about each movie. <br>
-        It's also being designed to return data about different genres and directors. <br>
-        It should allow users to register with a username, password, email and birthday. <br>
-        Allow each individual user to make lists of their favorite movies or watch later list and be able to remove movies from their list. <br>
-        It should also allow users to delete their account or de-register, deleting their data from the database. <br>
-
-        Updated 3/20/2024 6am-ish
-    </p>
+    <p>List of Get request URL's</p>
+    <ul class="getList">
+      <li> <!--Home-->
+        <h3>Home Page</h3>
+        <p>Method: .get</p>
+        <p>URL: http://localhost:8080/</p>
+        <p>URL: http://localhost:8080/index.html</p>
+        <p>The homepage of the app that everyone is guaranteed to see</p>
+      </li>
+      <li> <!--All movies-->
+        <h3>Get all movies</h3>
+        <p>Method: .get</p>
+        <p>URL: http://localhost:8080/movies</p>
+        <p>URL: http://localhost:8080/public/movies</p>
+        <p>Returns the list of all the movies in the API</p>
+      </li>
+      <li><!--Movie by Title-->
+        <h3>Get one movie</h3>
+        <p>Method: .get</p>
+        <p>URL: http://localhost:8080/movies/:title</p>
+        <p>Returns a single movie, searched by the user, if it's in the API</p>
+      </li>
+      <li> <!--Movies by Genre-->
+        <h3>Get the movies in one Genre</h3>
+        <p>Method: .get</p>
+        <p>URL: http://localhost:8080/movies/:genre</p>
+        <p>Returns a list of all movies within the selected genre</p>
+      </li>
+      <li> <!--Movies by Director-->
+        <h3>Get the movies from one Director</h3>
+        <p>Method .get</p>
+        <p>URL: http://localhost:8080/movies/:director</p>
+        <p>Returns a list of movies directed by a single director</p>
+      </li>
+      <li> <!--Movies by Year-->
+        <h3>Get all the movies from one Year</h3>
+        <p>Method: .get</p>
+        <p>URL: http://localhost:8080/movies/:year</p>
+        <p>Returns a list of movies all released in the same year</p>
+      </li>
+      <li> <!--Movies in one Genre and one Year-->
+        <h3>Get the movies in a given genre from one year</h3>
+        <p>Method: .get</p>
+        <p>URL: http://localhost:8080/movies/:genre/:year</p>
+        <p>Returns a list of movies that contain the same genre and released in a single year, both specified by the user</p>
+      </li>
+      <li> <!--Documentation list-->
+        <h3>Get this very documentation list</h3>
+        <p>Method: .get</p>
+        <p>URL: http://localhost:8080/documentation</p>
+        <p>URL: http://localhost:8080/public/documentation</p>
+        <p>Returns this documentation page</p>
+      </li>
+    </ul>
+    <ul class="postList">
+      <li><!--New Movie-->
+        <h3>Add a new movie to the API</h3>
+        <p>Method: .post</p>
+        <p>URL: http://localhost:8080/movies</p>
+        <p>Adds a new User Specified Movie using the following format: </p>
+        <p>{"title": " ", "year": " ", "genre": " ", "director": " "}</p>
+      </li>
+    </ul>
+    <ul class="putList">
+      <li>
+        <h3></h3>
+        <p></p>
+        <p></p>
+      </li>
+    </ul>
   </body>
 </html>

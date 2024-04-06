@@ -3,52 +3,62 @@
         {
             "title": "The Matrix Reloaded",
             "year": 2003,
-            "genre": "Action Sci-fi"
+            "genre": ["Action", "Sci-fi" ],
+            "director": "Lana Wachowski, Lilly Wachowski"
         },
         {
             "title": "The Matrix",
             "year": 1999,
-            "genre": "Action Sci-fi"
+            "genre": ["Action", "Sci-fi"],
+            "director": "Lana Wachowski, Lilly Wachowski"
         },
         {
             "title": "Ms. Doubtfire",
             "year": 1993,
-            "genre": "Comedy"
+            "genre": "Comedy",
+            "director": "Chris Columbus"
         },
         {
             "title": "Flushed Away",
             "year": 2006,
-            "genre": "Action Animation"
+            "genre": ["Action", "Animation"],
+            "director": "Sam Fell, David Bowers"
         },
         {
             "title": "Kingsman: The Secret Service",
             "year": 2014,
-            "genre": "Action Adventure"
+            "genre": ["Action", "Adventure"],
+            "director": "Matthew Vaughn"
         },
         {
             "title": "Kingsman: The Golden Circle",
             "year": 2017,
-            "genre": "Action Adventure"
+            "genre": ["Action", "Adventure"],
+            "director": "Matthew Vaughn"
         },
         {
             "title": "The Kings Man",
             "year": 2021,
-            "genre": "Action Adventure"
+            "genre": ["Action", "Adventure"],
+            "director": "Matthew Vaughn"
         },
         {
             "title": "Guardians of the Galaxy",
             "year": 2014,
-            "genre": "Action Adventure"
+            "genre": ["Action", "Adventure"],
+            "director": "James Gunn"
         },
         {
             "title": "Guardians of the Galaxy Vol. 2",
             "year": 2017,
-            "genre": "Action Adventure"
+            "genre": ["Action", "Adventure"],
+            "director": "James Gunn"
         },
         {
             "title": "Guardians of the Galaxy Vol. 3",
             "year": 2023,
-            "genre": "Action Adventure"
+            "genre": ["Action", "Adventure"],
+            "director": "James Gunn"
         }
     ]
 }
