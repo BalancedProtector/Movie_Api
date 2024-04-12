@@ -4,61 +4,81 @@
             "title": "The Matrix Reloaded",
             "year": 2003,
             "genre": ["Action", "Sci-fi" ],
-            "director": "Lana Wachowski, Lilly Wachowski"
+            "director": "Lana Wachowski, Lilly Wachowski",
+            "thumbnail": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fpicfiles.alphacoders.com%2F399%2Fthumb-1920-399701.jpg&f=1&nofb=1&ipt=87f09aef555bbbc90801fdcce27addcd296ed1f8ca8c843179dbaa579c0023a5&ipo=images",
+            "overview": "Freedom fighters Neo, Trinity and Morpheus continue to lead the revolt against the Machine Army, unleashing their arsenal of extraordinary skills and weaponry against the systematic forces of repression and exploitation."
         },
         {
             "title": "The Matrix",
             "year": 1999,
             "genre": ["Action", "Sci-fi"],
-            "director": "Lana Wachowski, Lilly Wachowski"
+            "director": "Lana Wachowski, Lilly Wachowski",
+            "thumbnail": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi0.wp.com%2Fglenn.zucman.com%2Fi2va%2Fwp-content%2Fuploads%2F2016%2F09%2FThe-Matrix-Poster.jpg&f=1&nofb=1&ipt=c12bf41587bb2743b9c8f510b1ac1dbc4f0d0a5b48a5092c47df3850706092cf&ipo=images",
+            "overview": "When a beautiful stranger leads computer hacker Neo to a forbidding underworld, he discovers the shocking truth--the life he knows is the elaborate deception of an evil cyber-intelligence."
         },
         {
             "title": "Ms. Doubtfire",
             "year": 1993,
             "genre": "Comedy",
-            "director": "Chris Columbus"
+            "director": "Chris Columbus",
+            "thumbnail": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.themoviedb.org%2Ft%2Fp%2Foriginal%2FzSCOzX9Yo9eyUgoGrSZXt7H3MwY.jpg&f=1&nofb=1&ipt=51aa2e5e040ccbbfda4ce74182831766c8ea9039b56cc1816d672e9b6b3b3cdc&ipo=images",
+            "overview": "After a bitter divorce, an actor disguises himself as a female housekeeper to spend time with his children held in custody by his former wife."
         },
         {
             "title": "Flushed Away",
             "year": 2006,
             "genre": ["Action", "Animation"],
-            "director": "Sam Fell, David Bowers"
+            "director": "Sam Fell, David Bowers",
+            "thumbnail": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2F75%2F5a%2F18%2F755a18b98ceb8dfa90b4eb3fdf3eca45.jpg&f=1&nofb=1&ipt=d94a82a2997ddd53c3c7156fc4cf342b9d22dacce338b6304bf4228705e76692&ipo=images",
+            "overview": "The story of an uptown rat that gets flushed down the toilet from his penthouse apartment, ending in the sewers of London, where he has to learn a whole new and different way of life."
         },
         {
             "title": "Kingsman: The Secret Service",
             "year": 2014,
             "genre": ["Action", "Adventure"],
-            "director": "Matthew Vaughn"
+            "director": "Matthew Vaughn",
+            "thumbnail": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Famc-theatres-res.cloudinary.com%2Fv1579119409%2Famc-cdn%2Fproduction%2F2%2Fmovies%2F42700%2F42683%2FPoster%2Fp_800x1200_AMC_KingsmanTheSecretService_02112019.jpg&f=1&nofb=1&ipt=346dcc602d0e9155cda5c8cd16470d0965278478f44b5e0d44f484ca6ac10fc9&ipo=images",
+            "overvie": "A spy organisation recruits a promising street kid into the agency's training program, while a global threat emerges from a twisted tech genius."
         },
         {
             "title": "Kingsman: The Golden Circle",
             "year": 2017,
             "genre": ["Action", "Adventure"],
-            "director": "Matthew Vaughn"
+            "director": "Matthew Vaughn",
+            "thumbnail": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2Fc1%2Fef%2F10%2Fc1ef10329bcf6695c654fde2ce5aef2d.jpg&f=1&nofb=1&ipt=7c2a2f5fd50938d2f9ec21e2f36593a8194357971de101e13cebd82e2d771fa0&ipo=images",
+            "overview": "After the Kingsman's headquarters is destroyed and the world is held hostage, an allied spy organization in the United States is discovered. These two elite secret agencies must band together to defeat a common enemy."
         },
         {
             "title": "The Kings Man",
             "year": 2021,
             "genre": ["Action", "Adventure"],
-            "director": "Matthew Vaughn"
+            "director": "Matthew Vaughn",
+            "thumbnail": "https://cdn.traileraddict.com/content/20th-century-fox/the-kings-man-poster-2.jpg",
+            "overview": "In the early years of the 20th century, the Kingsman agency is formed to stand against a cabal plotting a war to wipe out millions."
         },
         {
             "title": "Guardians of the Galaxy",
             "year": 2014,
             "genre": ["Action", "Adventure"],
-            "director": "James Gunn"
+            "director": "James Gunn",
+            "thumbnail": "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.my-sf.com%2Fwp-content%2Fuploads%2F2014%2F08%2FGuardians-of-the-Galaxy-theatrical-teaser-poster.jpg&f=1&nofb=1&ipt=565f33562d9a3b7895380046705bec999beeefd5c67df0004c0954919b44cdb9&ipo=images",
+            "overview": "A group of intergalactic criminals must pull together to stop a fanatical warrior with plans to purge the universe."
         },
         {
             "title": "Guardians of the Galaxy Vol. 2",
             "year": 2017,
             "genre": ["Action", "Adventure"],
-            "director": "James Gunn"
+            "director": "James Gunn",
+            "thumbnail": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.vintagemovieposters.co.uk%2Fwp-content%2Fuploads%2F2020%2F11%2FIMG_0771-scaled.jpeg&f=1&nofb=1&ipt=adeac8d2f591fd50fa082fdcbc6cdb8bcaf9bb0b7a9d43b3d7d05f8e67a6bb46&ipo=images",
+            "overview": "The Guardians struggle to keep together as a team while dealing with their personal family issues, notably Star-Lord's encounter with his father, the ambitious celestial being Ego."
         },
         {
             "title": "Guardians of the Galaxy Vol. 3",
             "year": 2023,
             "genre": ["Action", "Adventure"],
-            "director": "James Gunn"
+            "director": "James Gunn",
+            "thumbnail": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages-wixmp-ed30a86b8c4ca887773594c2.wixmp.com%2Ff%2F6508d53d-9f08-4740-a8a1-d26e4506f78a%2Fdetgxzi-6277fddb-9d41-4d09-8854-5f3407b3efa6.jpg%2Fv1%2Ffill%2Fw_1280%2Ch_1811%2Cq_75%2Cstrp%2Fguardians_of_the_galaxy_vol_3_poster_by_marvelmango_detgxzi-fullview.jpg%3Ftoken%3DeyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTgxMSIsInBhdGgiOiJcL2ZcLzY1MDhkNTNkLTlmMDgtNDc0MC1hOGExLWQyNmU0NTA2Zjc4YVwvZGV0Z3h6aS02Mjc3ZmRkYi05ZDQxLTRkMDktODg1NC01ZjM0MDdiM2VmYTYuanBnIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.yeJTCLtpExnAbGlzWCsXBcOgXzj1yYVXZeNOwDE-nc8&f=1&nofb=1&ipt=84ff8252a29058b41cf8036bef807361f303e974e94086bbe2c2818e69f116ad&ipo=images",
+            "overview": "Still reeling from the loss of Gamora, Peter Quill rallies his team to defend the universe and one of their own - a mission that could mean the end of the Guardians if not successful."
         }
     ]
 }
