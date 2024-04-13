@@ -8,6 +8,33 @@ const express = require("express"),
 
 const app = express();
 
+//Logging Middleware
+const accessLogStream = fs.createWriteStream(path.join(__dirname, "log.txt"), {flags: "a"});
+app.use(morgan("combined" , {stream: accessLogStream}));
+
+//Body Parser Middleware
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
+
+//Method Override Middleware
+app.use(methodOverride());
+
+//Error Handling Middleware
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).send("Something broke!");
+})
+
+//Express.static middleware
+app.use(express.static("public"));
+
+let users = [
+    {
+        id: "1",
+        name: "John Doe",
+        favoriteMovies: ["The Matrix"]
+    },
+];
 let movies = [
     {
         "Title": "The Matrix Reloaded",
@@ -161,90 +188,31 @@ let movies = [
         "Overview": "Still reeling from the loss of Gamora, Peter Quill rallies his team to defend the universe and one of their own - a mission that could mean the end of the Guardians if not successful."
     },
 ];
-//Logging Middleware
-const accessLogStream = fs.createWriteStream(path.join(__dirname, "log.txt"), {flags: "a"});
-app.use(morgan("combined" , {stream: accessLogStream}));
 
-//Body Parser Middleware
-app.use(bodyParser.urlencoded({extended: true}));
-app.use(bodyParser.json());
-
-//Method Override Middleware
-app.use(methodOverride());
-
-//Error Handling Middleware
-app.use((err, req, res, next) => {
-    console.error(err.stack);
-    res.status(500).send("Something broke!");
-})
-
-//Express.static middleware
-app.use(express.static("public"));
-
+//Create
 //New Users
 app.post("/users", (req, res) => {
-    let newUser = req.body;
-    if(!newUser.name) {
-        const message = "Missing 'name' in request body";
-        res.status(400).send(message);
-    }else{
+    const newUser = req.body;
+    if(newUser.name) {
         newUser.id = uuid.v4();
         users.push(newUser);
-        res.status(201).send(newUser);
-    }
-})
-
-//get requests
-app.get ("/", (req, res) => {
-    res.status(200).send("Welcome to Mind Theatre!");
-    res.sendFile("/index.html", {root: __dirname});
-});
-app.get("/movies", (req, res) => {
-    res.status(200).json(movies);
-})
-app.get("/movies/:title", (req, res) => {
-    const { title }= req.params;
-    const movie = movies.find(movie => movie.Title === title);
-    if(movie) {
-        res.status(200).json(movie);
+        res.status(201).json(newUser);
     }else{
-        res.status(40).send("Movie not here");
+        res.status(400).send("Missing a Name!");
     }
-})
-app.get("/movies/genre/:genreName", (req, res) => {
-    const { genreName } = req.params;
-    const genre = movies.find(movie => movie.Genre.Name === genreName).Genre;
-    if(genre){
-        res.status(200).json(genre);
-    }else{
-        res.status(400).send("Genre not found");
-    }
-})
-app.get("/movies/:director", (req, res) => {
-    res.send("Sends data about all the movies directed by a specific director");
-    return res.status(200).send("Movies directed by " + req.params.director);
-})
-app.get("/movies/:year", (req, res) => {
-    res.send("sends data about all movies directed in a given year");
-    return res.status(200).send("Movies released in " + req.params.year);
-})
-app.get("/movies/:genre/:year", (req, res) => {
-    res.send("Sends data about all movies in a given genre released in a given year");
-    return res.status (200).send(req.params.genre + " movies released in " + req.params.year);
-})
-app.get("/directors", (req, res) => {
-    res.send("Sends list of all directors");
-    return res.status(200).send("List of Directors");
-})
-app.get("/genres", (req, res) => {
-    res.send ("Sends list of all genres");
-    return res.status(200).send("List of Genres");
-})
-app.get("/documentation", (req, res) => {
-    res.sendFile("/public/documentation.html", {root: __dirname});
 });
-
-//post requests
+//New Favorite Movie added to user
+app.post("/users/:id/:movieTitle", (req, res) => {
+    const { id, movieTitle } = req.params
+    let user = users.find(user => user.id == id);
+    if(user){
+        user.favoriteMovies.push(movieTitle);
+        res.status(200).json(user);
+    }else{
+        res.status(400).send(`${movieTitle} has been added to user ${id}'s array of favorite movies`);
+    }
+})
+//New Movie
 app.post("/movies", (req, res) => {
     let newMovie = req.body;
     if(!newMovie.title) {
@@ -265,8 +233,85 @@ app.post("/movies", (req, res) => {
         res.status(201).send(newMovie + " Added to Mind Theatre");
     }
     return res.status(201).send("New Movie Added");
+});
+
+//Update
+//Update User info
+app.put("/users/:id", (req, res) => {
+    const { id } = req.params;
+    
+    let user = users.find(user => user.id == id);
+    if(user){
+        user.name = updatedUser.name;
+        res.status(200).json(user);
+    }else{
+        res.status(400).send("User not found");
+    }
 })
 
+
+//READ
+//get requests
+app.get ("/", (req, res) => {
+    res.status(200).send("Welcome to Mind Theatre!");
+    res.sendFile("/index.html", {root: __dirname});
+});
+app.get("/movies", (req, res) => {
+    res.status(200).json(movies);
+})
+app.get("/movies/:title", (req, res) => {
+    const { title }= req.params;
+    const movie = movies.find(movie => movie.Title === title);
+    if(movie) {
+        res.status(200).json(movie);
+    }else{
+        res.status(40).send("Movie not here");
+    }
+})
+app.get("/movies/genre/:genreName", (req, res) => {
+    const { genreName } = req.params;
+    const genre = movies.filter(movie => movie.Genre.Name.includes(genreName));
+    if(genre){
+        res.status(200).json(genre);
+    }else{
+        res.status(400).send("Genre not found");
+    }
+})
+app.get("/movies/directors/:directorName", (req, res) => {
+    const { directorName } = req.params;
+    const director = movies.find(movie => movie.Director.Name === directorName).Director;
+    if(director){
+        res.status(200).json(director);
+    }else{
+        res.status(400).send("Director not Found");
+    }
+})
+app.get("/documentation", (req, res) => {
+    res.status(200).sendFile("/public/documentation.html", {root: __dirname});
+})
+
+//DELETE
+//New Favorite Movie added to user
+app.delete("/users/:id", (req, res) => {
+    const { id } = req.params
+    let user = users.find(user => user.id == id);
+    if(user){
+        users = users.filter(user => user.id != id);
+        res.status(200).send(`User ${id} has been deleted`);
+    }else{
+        res.status(400).send("Cannot find user to remove");
+    }
+});
+app.delete("/users/:id/:movieTitle", (req, res) => {
+    const { id, movieTitle } = req.params
+    let user = users.find(user => user.id == id);
+    if(user){
+        user.favoriteMovies = user.favoriteMovies.filter(title => title !== movieTitle);
+        res.status(200).json(user);
+    }else{
+        res.status(400).send(`${movieTitle} has been added to user ${id}'s array of favorite movies`);
+    }
+});
 //Server Port
 app.listen(8080, () => {
     console.log("Server is running on http://localhost:8080");
