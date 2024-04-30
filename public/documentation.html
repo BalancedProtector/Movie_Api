@@ -20,13 +20,13 @@
       <li> <!--All movies-->
         <h3>Get all movies</h3>
         <p>Method: .get</p>
-        <p>URL: http://localhost:8080/public/movies</p>
+        <p>URL: http://localhost:8080/movies</p>
         <p>Returns the list of all the movies in the API</p>
       </li>
       <li><!--Movie by Title-->
         <h3>Get one movie</h3>
         <p>Method: .get</p>
-        <p>URL: http://localhost:8080/public/movies/:title</p>
+        <p>URL: http://localhost:8080/movies/:Title</p>
         <p>Returns a single movie, searched by the user, if it's in the API</p>
       </li>
       <li> <!--Movies by Genre-->
@@ -38,20 +38,8 @@
       <li> <!--Movies by Director-->
         <h3>Get the movies from one Director</h3>
         <p>Method .get</p>
-        <p>URL: http://localhost:8080/movies/:director</p>
+        <p>URL: http://localhost:8080/movies/:Director</p>
         <p>Returns a list of movies directed by a single director</p>
-      </li>
-      <li> <!--Movies by Year-->
-        <h3>Get all the movies from one Year</h3>
-        <p>Method: .get</p>
-        <p>URL: http://localhost:8080/movies/:year</p>
-        <p>Returns a list of movies all released in the same year</p>
-      </li>
-      <li> <!--Movies in one Genre and one Year-->
-        <h3>Get the movies in a given genre from one year</h3>
-        <p>Method: .get</p>
-        <p>URL: http://localhost:8080/movies/:genre/:year</p>
-        <p>Returns a list of movies that contain the same genre and released in a single year, both specified by the user</p>
       </li>
       <li> <!--Documentation list-->
         <h3>Get this very documentation list</h3>
@@ -66,8 +54,15 @@
         <h3>Add a new movie to the API</h3>
         <p>Method: .post</p>
         <p>URL: http://localhost:8080/movies</p>
-        <p>Adds a new User Specified Movie using the following format: </p>
+        <p>Adds a new Movie using the following JSON format: </p>
         <p>{"title": " ", "year": " ", "genre": " ", "director": " ", "thumbnail": " 'url here' "}</p>
+      </li>
+      <li>
+        <h3>Add New User to the API</h3>
+        <p>Method: .post</p>
+        <p>URL: http://localhost:8080/users</p>
+        <p>Adds a New User using the following JSON format:</p>
+        <p>{"Name": "" , "Password": "" , "Email": "", "Birthday": Date }</p>
       </li>
     </ul>
     <ul class="putList">
