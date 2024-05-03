@@ -13,10 +13,7 @@ const Models = require("./models.js");
 
 const Movies = Models.Movie;
 const Users = Models.User;
-/*
-const Genres = Models.Genre;
-const Directors = Models.Director;
-*/
+
 mongoose.connect("mongodb://localhost:27017/MindTheatreDB");
 
 //Logging Middleware
@@ -222,115 +219,6 @@ app.delete('/users/:Name/movies/:MovieID', async (req, res) => {
         res.status(500).send('Error: ' + err);
     });
 });
-
-/*
-//Old Code from 2. ... 4?
-//New Favorite Movie added to user
-app.post("/users/:id/:movieTitle", (req, res) => {
-    const { id, movieTitle } = req.params
-    let user = users.find(user => user.id == id);
-    if(user){
-        user.favoriteMovies.push(movieTitle);
-        res.status(200).json(user);
-    }else{
-        res.status(400).send(`${movieTitle} has been added to user ${id}'s array of favorite movies`);
-    }
-})
-//New Movie
-app.post("/movies", (req, res) => {
-    let newMovie = req.body;
-    if(!newMovie.title) {
-        const message = "Missing 'Title' in request body";
-        res.status(400).send(message);
-    }else if(!newMovie.genre) {
-        const message = "Missing 'Genre' inn request body";
-        res.status(400).send(message);
-    }else if(!newMovie.director) {
-        const message = "Missing 'Director' in request body";
-        res.status(400).send(message);
-    }else if(!newMovie.year) {
-        const message = "Missing 'Year' in request body";
-        res.status(400).send(message);
-    }else{
-        newMovie.id = uuid.v4();
-        movies.push(newMovie);
-        res.status(201).send(newMovie + " Added to Mind Theatre");
-    }
-    return res.status(201).send("New Movie Added");
-});
-
-//Update
-//Update User info
-app.put("/users/:id", (req, res) => {
-    const { id } = req.params;
-    
-    let user = users.find(user => user.id == id);
-    if(user){
-        user.name = updatedUser.name;
-        res.status(200).json(user);
-    }else{
-        res.status(400).send("User not found");
-    }
-})
-
-
-//READ
-//get requests
-
-app.get("/movies", (req, res) => {
-    res.status(200).json(movies);
-})
-app.get("/movies/:title", (req, res) => {
-    const { title }= req.params;
-    const movie = movies.find(movie => movie.Title === title);
-    if(movie) {
-        res.status(200).json(movie);
-    }else{
-        res.status(40).send("Movie not here");
-    }
-})
-app.get("/movies/genre/:genreName", (req, res) => {
-    const { genreName } = req.params;
-    const genre = movies.filter(movie => movie.Genre.Name.includes(genreName));
-    if(genre){
-        res.status(200).json(genre);
-    }else{
-        res.status(400).send("Genre not found");
-    }
-})
-app.get("/movies/directors/:directorName", (req, res) => {
-    const { directorName } = req.params;
-    const director = movies.find(movie => movie.Director.Name === directorName).Director;
-    if(director){
-        res.status(200).json(director);
-    }else{
-        res.status(400).send("Director not Found");
-    }
-})
-
-
-//DELETE
-//New Favorite Movie added to user
-app.delete("/users/:id", (req, res) => {
-    const { id } = req.params
-    let user = users.find(user => user.id == id);
-    if(user){
-        users = users.filter(user => user.id != id);
-        res.status(200).send(`User ${id} has been deleted`);
-    }else{
-        res.status(400).send("Cannot find user to remove");
-    }
-});
-app.delete("/users/:id/:movieTitle", (req, res) => {
-    const { id, movieTitle } = req.params
-    let user = users.find(user => user.id == id);
-    if(user){
-        user.favoriteMovies = user.favoriteMovies.filter(title => title !== movieTitle);
-        res.status(200).json(user);
-    }else{
-        res.status(400).send(`${movieTitle} has been added to user ${id}'s array of favorite movies`);
-    }
-});*/
 
 //Server Port
 app.listen(8080, () => {

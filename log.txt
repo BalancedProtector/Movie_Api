@@ -191,3 +191,6 @@
 ::1 - - [03/May/2024:18:26:17 +0000] "GET /users/Jason%20Dont HTTP/1.1" 200 252 "-" "PostmanRuntime/7.38.0"
 ::1 - - [03/May/2024:18:27:48 +0000] "DELETE /users/Jason%20Dont/movies/66285dc703526f3560117b80 HTTP/1.1" 200 225 "-" "PostmanRuntime/7.38.0"
 ::1 - - [03/May/2024:18:31:34 +0000] "DELETE /users/TestingTesting HTTP/1.1" 200 27 "-" "PostmanRuntime/7.38.0"
+::1 - - [03/May/2024:18:41:15 +0000] "POST /users HTTP/1.1" 201 179 "-" "PostmanRuntime/7.38.0"
+::1 - - [03/May/2024:18:43:05 +0000] "DELETE /users/TestingTesting HTTP/1.1" 200 27 "-" "PostmanRuntime/7.38.0"
+::1 - - [03/May/2024:18:43:14 +0000] "DELETE /users/TestingTesting HTTP/1.1" 400 29 "-" "PostmanRuntime/7.38.0"
