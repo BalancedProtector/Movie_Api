@@ -86,6 +86,11 @@ app.post('/users/:Name/movies/:MovieID', async (req, res) => {
 
 //Read
 
+//Get Homepage
+app.get ("/", (req, res) => {
+    res.status(200).send("Welcome to Mind Theatre!");
+    res.sendFile("/index.html", {root: __dirname});
+});
 //Get Users
 app.get('/users', async (req, res) => {
     await Users.find()
@@ -135,11 +140,10 @@ app.get('/movies/:Title', (req, res) => {
 });
 
 //Get Genre by Name
-app.get('/movies/:Genre', async (req, res) => {
-    await Movies.findOne({Genre: req.params.Genre})
-        .then((Genre) => {
-            res.send(Genre.Name),
-            res.send(Genre.Description);
+app.get('/genres/:Name', async (req, res) => {
+    await Movies.findOne({'Genre.Name' : req.params.Name})
+        .then((movie) => {
+            res.json(movie.Genre);
         })
         .catch((err) => {
             console.error(err);
@@ -148,17 +152,22 @@ app.get('/movies/:Genre', async (req, res) => {
 });
 
 //Get Director by Name
-app.get('/movies/:Director', async (req, res) => {
-    await Movies.findOne({Director: req.params.Director})
-        .then((Director) => {
-            res.send(Director.Name),
-            res.send(Director.Bio);
+app.get('/directors/:Director', async (req, res) => {
+    await Movies.findOne({'Director.Name': req.params.Director})
+        .then((movie) => {
+            res.send(movie.Director)
         })
         .catch((err) => {
             console.error(err);
             res.status(500).send('Error: ' + err);
         });
 });
+
+//Get Documentation Page
+app.get("/documentation", (req, res) => {
+    res.status(200).sendFile("/public/documentation.html", {root: __dirname});
+})
+
 //Update
 
 //Update User by Username (Name)
@@ -185,7 +194,7 @@ app.put('/users/:Name', async (req, res) => {
 
 //Delete User by Name
 app.delete('/users/:Name', async (req, res) => {
-    await Users.findOneAndRemove({Name: req.params.Name})
+    await Users.findOneAndDelete({Name: req.params.Name})
         .then((user) => {
             if(!user) {
                 res.status(400).send(req.params.Name + ' was not found.');
@@ -267,10 +276,7 @@ app.put("/users/:id", (req, res) => {
 
 //READ
 //get requests
-app.get ("/", (req, res) => {
-    res.status(200).send("Welcome to Mind Theatre!");
-    res.sendFile("/index.html", {root: __dirname});
-});
+
 app.get("/movies", (req, res) => {
     res.status(200).json(movies);
 })
@@ -301,9 +307,7 @@ app.get("/movies/directors/:directorName", (req, res) => {
         res.status(400).send("Director not Found");
     }
 })
-app.get("/documentation", (req, res) => {
-    res.status(200).sendFile("/public/documentation.html", {root: __dirname});
-})
+
 
 //DELETE
 //New Favorite Movie added to user
