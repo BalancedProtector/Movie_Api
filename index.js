@@ -257,6 +257,7 @@ app.delete('/users/:Name/movies/:MovieID', passport.authenticate('jwt', {session
 });
 
 //Server Port
-app.listen(8080, () => {
-    console.log("Server is running on http://localhost:8080");
+const port = process.env.PORT || 8080
+app.listen(port, '0.0.0.0', () => {
+    console.log('Listening on Port ' + port);
 });
