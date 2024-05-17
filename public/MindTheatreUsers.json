@@ -1,0 +1,4 @@
+{"_id":{"$oid":"6628565b03526f3560117b7b"},"Name":"John Doe","Birthday":{"$date":{"$numberLong":"-978307200000"}},"favoriteMovies":[{"$oid":"6629a59e45ea991354117b7c"},{"$oid":"6629ae5e45ea991354117b7d"}]}
+{"_id":{"$oid":"6628566203526f3560117b7c"},"Name":"Jane Doe","Birthday":{"$date":{"$numberLong":"-28771200000"}},"favoriteMovies":[{"$oid":"6629a1ff45ea991354117b7b"}]}
+{"_id":{"$oid":"6628566b03526f3560117b7d"},"Name":"Jason Dont","Birthday":{"$date":"1999-03-03T00:00:00Z"},"favoriteMovies":[{"$oid":"66285dc703526f3560117b80"},{"$oid":"6628608403526f3560117b81"},{"$oid":"6628a5b803526f3560117b82"}]}
+{"_id":{"$oid":"6628566f03526f3560117b7e"},"Name":"Jenny Wont","Birthday":{"$date":"2000-04-04T00:00:00Z"},"favoriteMovies":[{"$oid":"6628a5b803526f3560117b82"}]}

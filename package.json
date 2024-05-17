@@ -49,6 +49,7 @@
     "globals": "^13.24.0",
     "graphemer": "^1.4.0",
     "has-flag": "^4.0.0",
+    "heroku": "^8.1.9",
     "ignore": "^5.3.1",
     "import-fresh": "^3.3.0",
     "imurmurhash": "^0.1.4",

@@ -26,8 +26,8 @@ const Models = require("./models.js");
 
 const Movies = Models.Movie;
 const Users = Models.User;
-
-mongoose.connect("mongodb://localhost:27017/MindTheatreDB");
+mongoose.connect('process.env.CONNECTION_URI')
+/*mongoose.connect("mongodb://localhost:27017/MindTheatreDB");*/
 
 //Logging Middleware
 const accessLogStream = fs.createWriteStream(path.join(__dirname, "log.txt"), {flags: "a"});
