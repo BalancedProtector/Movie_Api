@@ -65,12 +65,12 @@ app.post('/users',[
     check('Name', 'Username contains non alphanumeric characters - not allowed.').isAlphanumeric(),
     check('Password', 'Password is required').not().isEmpty(),
     check('Email', 'Email does not appear to be valid').isEmail()
-], async (req, res) => {
+    ], async (req, res) => {
     let errors = validationResult(req);
     if (!errors.isEmpty()) {
         return res.status(422).json({ errors: errors.array() });
     }
-    let hashedPassword = Users.hashPassword(req.body.Password);
+    const hashedPassword = await Users.hashPassword(req.body.Password);
     await Users.findOne({Name: req.body.Name}) //Searching for existing Username
         .then((user) => {
             if (user) {
