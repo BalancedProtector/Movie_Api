@@ -22,12 +22,20 @@ app.use(cors({
 }));
 
 const mongoose = require("mongoose");
+
+const connStr = process.env.CONNECTION_URI; // This should match the name of the environment variable in Heroku
+
+mongoose.connect(connStr)
+  .then(() => console.log('Database Connected Successfully'))
+  .catch(err => console.log(err));
+
+/*mongoose.connect("mongodb://localhost:27017/MindTheatreDB");*/
+
 const Models = require("./models.js");
 
 const Movies = Models.Movie;
 const Users = Models.User;
-mongoose.connect('process.env.CONNECTION_URI')
-/*mongoose.connect("mongodb://localhost:27017/MindTheatreDB");*/
+
 
 //Logging Middleware
 const accessLogStream = fs.createWriteStream(path.join(__dirname, "log.txt"), {flags: "a"});
