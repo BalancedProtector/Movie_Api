@@ -13,39 +13,46 @@
       <li> <!--Home-->
         <h3>Home Page</h3>
         <p>Method: .get</p>
-        <p>URL: http://localhost:8080/</p>
-        <p>URL: http://localhost:8080/index.html</p>
+        <p>URL: https://mind-theatre-api-dc69e2dcb161.herokuapp.com/</p>
+        <p>URL: /index.html</p>
         <p>The homepage of the app that everyone is guaranteed to see</p>
       </li>
       <li> <!--All movies-->
         <h3>Get all movies</h3>
         <p>Method: .get</p>
-        <p>URL: http://localhost:8080/movies</p>
+        <p>URL: https://mind-theatre-api-dc69e2dcb161.herokuapp.com/movies</p>
         <p>Returns the list of all the movies in the API</p>
       </li>
       <li><!--Movie by Title-->
         <h3>Get one movie</h3>
         <p>Method: .get</p>
-        <p>URL: http://localhost:8080/movies/:Title</p>
+        <p>URL: https://mind-theatre-api-dc69e2dcb161.herokuapp.com/movies/:Title</p>
         <p>Returns a single movie, searched by the user, if it's in the API</p>
       </li>
-      <li> <!--Movies by Genre-->
-        <h3>Get the movies in one Genre</h3>
+      <li> <!--Genre by Name-->
+        <h3>Get the Genre by name</h3>
         <p>Method: .get</p>
-        <p>URL: http://localhost:8080/movies/:genre</p>
+        <p>URL: https://mind-theatre-api-dc69e2dcb161.herokuapp.com/genres/:GenreName</p>
         <p>Returns a list of all movies within the selected genre</p>
       </li>
-      <li> <!--Movies by Director-->
-        <h3>Get the movies from one Director</h3>
+      <li> <!--Director by Name-->
+        <h3>Get the a director by name</h3>
         <p>Method .get</p>
-        <p>URL: http://localhost:8080/movies/:Director</p>
+        <p>URL: https://mind-theatre-api-dc69e2dcb161.herokuapp.com/directors/:DirectorName</p>
         <p>Returns a list of movies directed by a single director</p>
+      </li>
+      <li><!--Users By Username (Name)-->
+        <h3>Users by Name</h3>
+        <p>Method: .get</p>
+        <p>URL: https://mind-theatre-api-dc69e2dcb161.herokuapp.com/users/:Name</p>
+        <p>Retrieves all information on one user</p>
+        <p>Specified by Name or their Username</p>
       </li>
       <li> <!--Documentation list-->
         <h3>Get this very documentation list</h3>
         <p>Method: .get</p>
-        <p>URL: http://localhost:8080/documentation</p>
-        <p>URL: http://localhost:8080/public/documentation</p>
+        <p>URL: https://mind-theatre-api-dc69e2dcb161.herokuapp.com/documentation</p>
+        <p>URL: https://mind-theatre-api-dc69e2dcb161.herokuapp.com/public/documentation</p>
         <p>Returns this documentation page</p>
       </li>
     </ul>
@@ -53,23 +60,52 @@
       <li><!--New Movie-->
         <h3>Add a new movie to the API</h3>
         <p>Method: .post</p>
-        <p>URL: http://localhost:8080/movies</p>
+        <p>URL: https://mind-theatre-api-dc69e2dcb161.herokuapp.com/movies</p>
         <p>Adds a new Movie using the following JSON format: </p>
         <p>{"Title": " ", "Year": Date , "Genre": " ", "Director": " ", "Thumbnail": " 'url here' "}</p>
       </li>
-      <li>
-        <h3>Add New User to the API</h3>
+      <li><!--New User-->
+        <h3>Register a new User</h3>
         <p>Method: .post</p>
-        <p>URL: http://localhost:8080/users</p>
+        <p>URL: https://mind-theatre-api-dc69e2dcb161.herokuapp.com/users</p>
         <p>Adds a New User using the following JSON format:</p>
-        <p>{"Name": "" , "Password": "" , "Email": "", "Birthday": Date }</p>
+        <p>{"Name": "" , "Password": "" , "Email": "", "Birthday": "Date" }</p>
+      </li>
+      <li><!--Existing User-->
+        <h3>Login an Existing User</h3>
+        <p>Method: .post</p>
+        <p>URL: https://mind-theatre-api-dc69e2dcb161.herokuapp.com/login?Name=(name)&Password=(password)</p>
+        <p>This logs in an existing user using the base URL: https://mind-theatre-api-dc69e2dcb161.herokuapp.com and adding Name and Password params. </p>
+        <p>Name is short for Username in this app, not standard understandably but I had to grab your attention somehow, with Password being standard for Password, this app uses hashed passwords for added security.</p>
+      </li>
+      <li><!--Add to Favorite Movies Array-->
+        <h3>Add a movie to a users favorite movies array</h3>
+        <p>Method: .post</p>
+        <p>URL: https://mind-theatre-api-dc69e2dcb161.herokuapp.com/users/:Name/movies/:MovieID</p>
+        <p>Adds a movie to a users favorite movies array</p>
       </li>
     </ul>
     <ul class="putList">
-      <li>
-        <h3></h3>
-        <p></p>
-        <p></p>
+      <li><!--User Update-->
+        <h3>Updates a Users Data</h3>
+        <p>Method: .put</p>
+        <p>URL: https://mind-theatre-api-dc69e2dcb161.herokuapp.com/users/:Name</p>
+        <p>Updates a users information in the following JSON format: </p>
+        <p>{Name : { type : String, required : true}}, {Password:{ type : String, required : true}}, {Email : { type : String, required : true}}, {Birthday: Date}, {favoriteMovies:[{ type : mongoose.Schema.Types.ObjectId, ref : 'Movie'}]}</p>
+      </li>
+    </ul>
+    <ul class="deleteList">
+      <li><!--Delete from Favorite Movies Array-->
+        <h3>Deletes a movie from a users favorite movies array</h3>
+        <p>Method: .delete</p>
+        <p>URL: https://mind-theatre-api-dc69e2dcb161.herokuapp.com/users/:Name/movies/:MovieID</p>
+        <p>Deletes a movie from a users favorite movies array</p>
+      </li>
+      <li><!--Delete User-->
+        <h3>Delete a User</h3>
+        <p>Method: .delete</p>
+        <p>URL: https://mind-theatre-api-dc69e2dcb161.herokuapp.com/users/:Name</p>
+        <p>Deletes a user from the API</p>
       </li>
     </ul>
   </body>
