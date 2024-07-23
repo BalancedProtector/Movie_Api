@@ -9,7 +9,7 @@ const express = require("express"),
 const app = express();
 
 const cors = require('cors');
-let allowedOrigins = ['*'];
+let allowedOrigins = ['http://localhost:1234', 'http://localhost:4200', 'http://localhost:3000'];
 app.use(cors({
     origin: (origin, callback) => {
         if (!origin) return callback(null, true);
@@ -35,7 +35,6 @@ const Models = require("./models.js");
 
 const Movies = Models.Movie;
 const Users = Models.User;
-
 
 //Logging Middleware
 const accessLogStream = fs.createWriteStream(path.join(__dirname, "log.txt"), { flags: "a" });
